@@ -207,6 +207,11 @@
         opacity: 50%;
     }
 
+    .mythical {
+        font-size: 11px;
+        opacity: 50%;
+    }
+
 </style>
 
 <script>
@@ -250,6 +255,28 @@
             </div>
             <div class="info">
                 <span class="number">#${pokemon.id.toString().padStart(3, '0')}</span>
+                <h3 class="name" style="color:${colors[type]}">${name}</h3>
+                <small class="type"><span>${type}</span></small>
+            </div>
+        `;
+
+        const pokeInnerHTMLStarter = `
+            <a href="https://pokedex.org/#/pokemon/${pokemon.id}"><div class="img-container">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png" alt="${name}" /></a>
+            </div>
+            <div class="info">
+                <span class="number" style="background-color: #e0e0e0">#${pokemon.id.toString().padStart(3, '0')} <span class="starter">Starter</span></span>
+                <h3 class="name" style="color:${colors[type]}">${name}</h3>
+                <small class="type"><span>${type}</span></small>
+            </div>
+        `;
+
+        const pokeInnerHTMLMythical = `
+            <a href="https://pokedex.org/#/pokemon/${pokemon.id}"><div class="img-container">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png" alt="${name}" /></a>
+            </div>
+            <div class="info">
+                <span class="number" style="background-color: #8c77ed">#${pokemon.id.toString().padStart(3, '0')} <span class="mythical">Mythical</span></span>
                 <h3 class="name" style="color:${colors[type]}">${name}</h3>
                 <small class="type"><span>${type}</span></small>
             </div>
@@ -320,6 +347,44 @@
             pokemonElement.innerHTML = pokeInnerHTMLLegendary;
         } else if (pokemon.id == 493){
             pokemonElement.innerHTML = pokeInnerHTMLLegendary;
+        } else if (pokemon.id == 151){
+            pokemonElement.innerHTML = pokeInnerHTMLMythical;
+        } else if (pokemon.id == 251){
+            pokemonElement.innerHTML = pokeInnerHTMLMythical;
+        } else if (pokemon.id == 385){
+            pokemonElement.innerHTML = pokeInnerHTMLMythical;
+        } else if (pokemon.id == 386){
+            pokemonElement.innerHTML = pokeInnerHTMLMythical;
+        } else if (pokemon.id == 489){
+            pokemonElement.innerHTML = pokeInnerHTMLMythical;
+        } else if (pokemon.id == 491){
+            pokemonElement.innerHTML = pokeInnerHTMLMythical;
+        } else if (pokemon.id == 492){
+            pokemonElement.innerHTML = pokeInnerHTMLMythical;
+        } else if (pokemon.id == 1){
+            pokemonElement.innerHTML = pokeInnerHTMLStarter;
+        } else if (pokemon.id == 4){
+            pokemonElement.innerHTML = pokeInnerHTMLStarter;
+        } else if (pokemon.id == 7){
+            pokemonElement.innerHTML = pokeInnerHTMLStarter;
+        } else if (pokemon.id == 152){
+            pokemonElement.innerHTML = pokeInnerHTMLStarter;
+        } else if (pokemon.id == 155){
+            pokemonElement.innerHTML = pokeInnerHTMLStarter;
+        } else if (pokemon.id == 158){
+            pokemonElement.innerHTML = pokeInnerHTMLStarter;
+        } else if (pokemon.id == 252){
+            pokemonElement.innerHTML = pokeInnerHTMLStarter;
+        } else if (pokemon.id == 255){
+            pokemonElement.innerHTML = pokeInnerHTMLStarter;
+        } else if (pokemon.id == 258){
+            pokemonElement.innerHTML = pokeInnerHTMLStarter;
+        } else if (pokemon.id == 387){
+            pokemonElement.innerHTML = pokeInnerHTMLStarter;
+        } else if (pokemon.id == 390){
+            pokemonElement.innerHTML = pokeInnerHTMLStarter;
+        } else if (pokemon.id == 393){
+            pokemonElement.innerHTML = pokeInnerHTMLStarter;
         } else {
         pokemonElement.innerHTML = pokeInnerHTML;
         }
