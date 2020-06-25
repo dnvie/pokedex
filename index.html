@@ -28,7 +28,7 @@
         </g>
     </svg>
 
-    <div id="poke_container" class="poke-container"></div>
+    <div id="container" class="poke-container"></div>
 </body>
 
 <style>
@@ -204,23 +204,10 @@
 </style>
 
 <script>
-    const poke_container = document.getElementById('poke_container');
+    const container = document.getElementById('container');
     const pokemons_number = 150;
     const colors = {
-        fire: '#FDDFDF',
-        grass: '#DEFDE0',
-        electric: '#FCF7DE',
-        water: '#DEF3FD',
-        ground: '#f4e7da',
-        rock: '#e6cfa8',
-        fairy: '#fceaff',
-        poison: '#d6c7ff',
-        bug: '#e7ffc7',
-        dragon: '#9facd6',
-        psychic: '#cebce3',
-        flying: '#F5F5F5',
-        fighting: '#E6E0D4',
-        normal: '#F5F5F5'
+        bug: '#e7ffc7', dragon: '#d9e0ff', electric: '#fffdde', fairy: '#fce1fa', fighting: '#ebe6df', fire: '#ffdbdb', flying: '#ebf4f5', grass: '#d1ffe1', ground: '#f4e7da', normal: '#F5F5F5', poison: '#d6c7ff', psychic: '#dbbae0', rock: '#e6cfa8', water: '#dbf5ff'
     };
     const main_types = Object.keys(colors);
 
@@ -232,21 +219,21 @@
 
     const getPokemon = async id => {
         const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
-        const res = await fetch(url);
-        const pokemon = await res.json();
+        const data = await fetch(url);
+        const pokemon = await data.json();
         createPokemonCard(pokemon);
     };
 
     function createPokemonCard(pokemon) {
-        const pokemonEl = document.createElement('div');
-        pokemonEl.classList.add('pokemon');
+        const pokemonElement = document.createElement('div');
+        pokemonElement.classList.add('pokemon');
 
         const poke_types = pokemon.types.map(type => type.type.name);
         const type = main_types.find(type => poke_types.indexOf(type) > -1);
         const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
         const color = colors[type];
 
-        pokemonEl.style.backgroundColor = color;
+        pokemonElement.style.backgroundColor = color;
 
         const pokeInnerHTML = `
         <a href="https://pokedex.org/#/pokemon/${pokemon.id}"><div class="img-container">
@@ -259,8 +246,8 @@
         </div>
     `;
 
-        pokemonEl.innerHTML = pokeInnerHTML;
-        poke_container.appendChild(pokemonEl);
+        pokemonElement.innerHTML = pokeInnerHTML;
+        container.appendChild(pokemonElement);
     }
 
     fetchPokemons();
