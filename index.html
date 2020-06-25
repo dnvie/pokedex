@@ -1,246 +1,246 @@
 <html>
 
-    <body>
-        <label class="theme-switch">
-            <input type="checkbox">
-            <span class="checkmark"></span>
-        </label>
-    
-    
-        <svg class="logo" xmlns="http://www.w3.org/2000/svg" width="546.453" height="126.896" viewBox="0 0 546.453 126.896">
-            <g id="pokedex" transform="translate(-76.854 -243.235)">
-                <text id="Pokédex." transform="translate(234.307 334.235)" fill="#f93d3d" font-size="91.458"
-                    font-family="Circular-Bold, Circular" font-weight="700">
-                    <tspan x="0" y="0" fill="var(--black)">Pokédex</tspan>
-                    <tspan y="0" fill="#f93d3d">.</tspan>
-                </text>
-                <g id="Gruppe_5" data-name="Gruppe 5" transform="translate(43.464 18.552)">
-                    <path id="Pfad_46" data-name="Pfad 46"
-                        d="M126.5,301.932a16.241,16.241,0,1,1-1.223-6.19A16.146,16.146,0,0,1,126.5,301.932Z"
-                        transform="translate(-13.713 -13.801)" fill="#f93d3d" />
-                    <path id="Pfad_47" data-name="Pfad 47"
-                        d="M159.628,315.683a63.453,63.453,0,0,1-126.138,0H67.984a29.414,29.414,0,0,0,57.15,0Z"
-                        transform="translate(-0.023 -20.588)" fill="#f93d3d" />
-                    <path id="Pfad_48" data-name="Pfad 48"
-                        d="M159.683,281.941H125.289a29.414,29.414,0,0,0-57.506,0H33.39a63.449,63.449,0,0,1,126.293,0Z"
-                        fill="#f93d3d" />
-                </g>
+<body>
+    <label class="theme-switch">
+        <input type="checkbox">
+        <span class="checkmark"></span>
+    </label>
+
+    <svg class="logo" xmlns="http://www.w3.org/2000/svg" width="546.453" height="126.896" viewBox="0 0 546.453 126.896">
+        <g id="pokedex" transform="translate(-76.854 -243.235)">
+            <text id="Pokédex." transform="translate(234.307 334.235)" fill="#f93d3d" font-size="91.458"
+                font-family="Circular-Bold, Circular" font-weight="700">
+                <tspan x="0" y="0" fill="var(--black)">Pokédex</tspan>
+                <tspan y="0" fill="#f93d3d">.</tspan>
+            </text>
+            <g id="Gruppe_5" data-name="Gruppe 5" transform="translate(43.464 18.552)">
+                <path id="Pfad_46" data-name="Pfad 46"
+                    d="M126.5,301.932a16.241,16.241,0,1,1-1.223-6.19A16.146,16.146,0,0,1,126.5,301.932Z"
+                    transform="translate(-13.713 -13.801)" fill="#f93d3d" />
+                <path id="Pfad_47" data-name="Pfad 47"
+                    d="M159.628,315.683a63.453,63.453,0,0,1-126.138,0H67.984a29.414,29.414,0,0,0,57.15,0Z"
+                    transform="translate(-0.023 -20.588)" fill="#f93d3d" />
+                <path id="Pfad_48" data-name="Pfad 48"
+                    d="M159.683,281.941H125.289a29.414,29.414,0,0,0-57.506,0H33.39a63.449,63.449,0,0,1,126.293,0Z"
+                    fill="#f93d3d" />
             </g>
-        </svg>
-    
-        <div id="container" class="poke-container"></div>
-    </body>
-    
-    <style>
-        :root {
-            --black: black;
-            --white: white;
-            --whiteNUM: white;
-            --boxshadow: rgba(100, 100, 100, 0.205);
+        </g>
+    </svg>
+
+    <div id="container" class="poke-container"></div>
+
+</body>
+
+<style>
+    :root {
+        --black: black;
+        --white: white;
+        --whiteNUM: white;
+        --boxshadow: rgba(100, 100, 100, 0.205);
+    }
+
+    [data-theme="dark"] {
+        --black: white;
+        --white: rgb(20, 20, 20);
+        --whiteNUM: rgb(70, 70, 70);
+        --boxshadow: rgba(255, 255, 255, 0);
+    }
+
+    body {
+        transition: all 0.25s ease-out;
+    }
+
+    .logo {
+        position: absolute;
+        top: 6.5%;
+        width: 40%;
+        height: 7%;
+        left: 30%;
+        padding-bottom: 20px;
+        z-index: 10;
+        transition: all 0.25s ease-out;
+    }
+
+    .theme-switch {
+        position: fixed;
+        display: inline;
+        position: absolute;
+        bottom: 2%;
+        left: 2%;
+        padding-left: 30px;
+        padding-bottom: 22px;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .theme-switch input {
+        position: fixed;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    .checkmark {
+        position: fixed;
+        bottom: 3%;
+        left: 2%;
+        height: 20px;
+        width: 20px;
+        border-radius: 20px;
+        background-color: var(--black);
+        transition: all 0.25s ease-out;
+    }
+
+
+    .theme-switch input:checked~.checkmark {
+        background-color: var(--black);
+        transition: all 0.25s ease-out;
+    }
+
+    .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+        transition: all 0.25s ease-out;
+    }
+
+    .theme-switch input:checked~.checkmark:after {
+        display: block;
+        transition: all 0.25s ease-out;
+    }
+
+
+    body {
+        background: var(--white);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Circular';
+        margin: 0;
+    }
+
+    .poke-container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        margin-top: 8%;
+        max-width: 60%;
+    }
+
+    .pokemon {
+        background-color: #eee;
+        border-radius: 0px 19px 19px 19px;
+        margin: 55px;
+        margin-top: 95px;
+        padding: 30px;
+        text-align: center;
+        transform: scale(1.5);
+        transition: all 0.15s ease-out;
+    }
+
+    .pokemon:hover {
+        transform: scale(1.55);
+        transition: all 0.15s ease-out;
+        box-shadow: 0 3px 15px rgba(100, 100, 100, 0.089);
+    }
+
+    .pokemon:hover .img-container {
+        transition: all 0.1s ease-out;
+    }
+
+    .pokemon .img-container {
+        background-color: none;
+        width: 120px;
+        height: 120px;
+        text-align: center;
+        transition: all 0.1s ease-out;
+    }
+
+    .pokemon .img-container img {
+        margin-top: 90px;
+        max-width: 90%;
+        transform: scale(1.2);
+        transition: all 0.1s ease-out;
+    }
+
+    .pokemon .info {
+        margin-top: -120px;
+        padding-bottom: 120px;
+    }
+
+    .pokemon .number {
+        position: absolute;
+        top: -3%;
+        left: -3%;
+        background-color: var(--whiteNUM);
+        color: var(--black);
+        box-shadow: 0 3px 15px var(--boxshadow);
+        border-radius: 8px;
+        font-family: Circular;
+        font-size: 11px;
+        font-weight: bold;
+        padding: 5px 10px;
+        transition: all 0.25s ease-out;
+    }
+
+    .pokemon .name {
+        margin: 15px 0px 7px;
+        opacity: 100%;
+    }
+
+    .pokemon .type {
+        background-color: rgba(56, 56, 56, 0.075);
+        font-size: 10px;
+        color: rgba(0, 0, 0, 0.678);
+        padding: 3px 12px;
+        border-radius: 7px;
+    }
+</style>
+
+<script>
+    const container = document.getElementById('container');
+    const pokemons_number = 150;
+    const colors = {
+        bug: '#79c710', dark: '#2b2b2b', dragon: '#495fc4', electric: '#f0d507', fairy: '#d64bba', fighting: '#6b6459', fire: '#fc4e4e', flying: '#7c9fa3', ghost: '#2c367a', grass: '#27b859', ground: '#8c6a48', ice: '#7afdff', normal: '#828282', poison: '#4421ad', psychic: '#701d7d', rock: '#734f14', steel: '#636363', water: '#0278cc'
+    };
+    const colors2 = {
+        bug: '#e7ffc7', dark: '#8c8c8c', dragon: '#d9e0ff', electric: '#fffbb5', fairy: '#fce1fa', fighting: '#ebe6df', fire: '#ffdbdb', flying: '#ebf4f5', ghost: '#9da1bd', grass: '#d1ffe1', ground: '#f4e7da', ice: '#d9feff', normal: '#F5F5F5', poison: '#d6c7ff', psychic: '#dbbae0', rock: '#e6cfa8', steel: '#d1d1d1', water: '#dbf5ff'
+    };
+    const main_types = Object.keys(colors);
+
+    const fetchPokemons = async () => {
+        for (let i = 1; i <= pokemons_number; i++) {
+            await getPokemon(i);
         }
-    
-        [data-theme="dark"] {
-            --black: white;
-            --white: rgb(20, 20, 20);
-            --whiteNUM: rgb(70, 70, 70);
-            --boxshadow: rgba(255, 255, 255, 0);
-        }
-    
-        body {
-            transition: all 0.25s ease-out;
-        }
-    
-        .logo {
-            position: absolute;
-            top: 6.5%;
-            width: 40%;
-            height: 7%;
-            left: 30%;
-            padding-bottom: 20px;
-            z-index: 10;
-            transition: all 0.25s ease-out;
-        }
-    
-        .theme-switch {
-            position: fixed;
-            display: inline;
-            position: absolute;
-            bottom: 2%;
-            left: 2%;
-            padding-left: 30px;
-            padding-bottom: 22px;
-            cursor: pointer;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-    
-        .theme-switch input {
-            position: fixed;
-            opacity: 0;
-            cursor: pointer;
-            height: 0;
-            width: 0;
-        }
-    
-        .checkmark {
-            position: fixed;
-            bottom: 3%;
-            left: 2%;
-            height: 20px;
-            width: 20px;
-            border-radius: 20px;
-            background-color: var(--black);
-            transition: all 0.25s ease-out;
-        }
-    
-    
-        .theme-switch input:checked~.checkmark {
-            background-color: var(--black);
-            transition: all 0.25s ease-out;
-        }
-    
-        .checkmark:after {
-            content: "";
-            position: absolute;
-            display: none;
-            transition: all 0.25s ease-out;
-        }
-    
-        .theme-switch input:checked~.checkmark:after {
-            display: block;
-            transition: all 0.25s ease-out;
-        }
-    
-    
-        body {
-            background: var(--white);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Circular';
-            margin: 0;
-        }
-    
-        .poke-container {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            margin-top: 8%;
-            max-width: 60%;
-        }
-    
-        .pokemon {
-            background-color: #eee;
-            border-radius: 0px 19px 19px 19px;
-            margin: 55px;
-            margin-top: 95px;
-            padding: 30px;
-            text-align: center;
-            transform: scale(1.5);
-            transition: all 0.1s ease-out;
-        }
-    
-        .pokemon:hover {
-            transform: scale(1.6);
-            transition: all 0.1s ease-out;
-            box-shadow: 0 3px 15px rgba(100, 100, 100, 0.089);
-        }
-    
-        .pokemon:hover .img-container {
-            transition: all 0.1s ease-out;
-        }
-    
-        .pokemon .img-container {
-            background-color: none;
-            width: 120px;
-            height: 120px;
-            text-align: center;
-            transition: all 0.1s ease-out;
-        }
-    
-        .pokemon .img-container img {
-            margin-top: 90px;
-            max-width: 90%;
-            transition: all 0.1s ease-out;
-        }
-    
-        .pokemon .info {
-            margin-top: -120px;
-            padding-bottom: 120px;
-        }
-    
-        .pokemon .number {
-            position: absolute;
-            top: -3%;
-            left: -3%;
-            background-color: var(--whiteNUM);
-            color: var(--black);
-            box-shadow: 0 3px 15px var(--boxshadow);
-            border-radius: 8px;
-            font-family: Circular;
-            font-size: 11px;
-            font-weight: bold;
-            padding: 5px 10px;
-            transition: all 0.25s ease-out;
-        }
-    
-        .pokemon .name {
-            margin: 15px 0px 7px;
-            opacity: 100%;
-        }
-    
-        .pokemon .type {
-            background-color: rgba(56, 56, 56, 0.075);
-            font-size: 10px;
-            color: rgba(0, 0, 0, 0.678);
-            padding: 3px 12px;
-            border-radius: 7px;
-        }
-        
-    </style>
-    
-    <script>
-        const container = document.getElementById('container');
-        const pokemons_number = 150;
-        const colors = {
-            bug: '#79c710', dragon: '#495fc4', electric: '#f0d507', fairy: '#d64bba', fighting: '#6b6459', fire: '#fc4e4e', flying: '#7c9fa3', grass: '#27b859', ground: '#8c6a48', normal: '#828282', poison: '#4421ad', psychic: '#701d7d', rock: '#734f14', water: '#0278cc'
-        };
-        const colors2 = {
-            bug: '#e7ffc7', dragon: '#d9e0ff', electric: '#fffbb5', fairy: '#fce1fa', fighting: '#ebe6df', fire: '#ffdbdb', flying: '#ebf4f5', grass: '#d1ffe1', ground: '#f4e7da', normal: '#F5F5F5', poison: '#d6c7ff', psychic: '#dbbae0', rock: '#e6cfa8', water: '#dbf5ff'
-        };
-        const main_types = Object.keys(colors);
-    
-        const fetchPokemons = async () => {
-            for (let i = 1; i <= pokemons_number; i++) {
-                await getPokemon(i);
-            }
-        };
-    
-        const getPokemon = async id => {
-            const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
-            const data = await fetch(url);
-            const pokemon = await data.json();
-            createPokemonCard(pokemon);
-        };
-    
-        function createPokemonCard(pokemon) {
-            const pokemonElement = document.createElement('div');
-            pokemonElement.classList.add('pokemon');
-    
-            const poke_types = pokemon.types.map(type => type.type.name);
-            const type = main_types.find(type => poke_types.indexOf(type) > -1);
-            const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
-            const color = colors2[type];
-    
-            pokemonElement.style.backgroundColor = color;
-    
-            const pokeInnerHTML = `
+    };
+
+    const getPokemon = async id => {
+        const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
+        const data = await fetch(url);
+        const pokemon = await data.json();
+        createPokemonCard(pokemon);
+    };
+
+    function createPokemonCard(pokemon) {
+        const pokemonElement = document.createElement('div');
+        pokemonElement.classList.add('pokemon');
+
+        const poke_types = pokemon.types.map(type => type.type.name);
+        const type = main_types.find(type => poke_types.indexOf(type) > -1);
+        const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
+        const color = colors2[type];
+
+        pokemonElement.style.backgroundColor = color;
+
+        const pokeInnerHTML = `
             <a href="https://pokedex.org/#/pokemon/${pokemon.id}"><div class="img-container">
-                <img src="https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png" alt="${name}" /></a>
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png" alt="${name}" /></a>
             </div>
             <div class="info">
                 <span class="number">#${pokemon.id.toString().padStart(3, '0')}</span>
@@ -248,51 +248,50 @@
                 <small class="type"><span>${type}</span></small>
             </div>
         `;
-    
-            pokemonElement.innerHTML = pokeInnerHTML;
-            container.appendChild(pokemonElement);
+
+        pokemonElement.innerHTML = pokeInnerHTML;
+        container.appendChild(pokemonElement);
+
+    }
+
+    fetchPokemons();
+
+
+    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+
+    function switchTheme(e) {
+        if (e.target.checked) {
+            document.documentElement.setAttribute('data-theme', 'dark');
         }
-    
-        fetchPokemons();
-    
-    
-        const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
-    
-        function switchTheme(e) {
-            if (e.target.checked) {
-                document.documentElement.setAttribute('data-theme', 'dark');
-            }
-            else {
-                document.documentElement.setAttribute('data-theme', 'light');
-            }
+        else {
+            document.documentElement.setAttribute('data-theme', 'light');
         }
-    
-        toggleSwitch.addEventListener('change', switchTheme, false);
-    
-        function switchTheme(e) {
-            if (e.target.checked) {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark'); //add this
-            }
-            else {
-                document.documentElement.setAttribute('data-theme', 'light');
-                localStorage.setItem('theme', 'light'); //add this
-            }
+    }
+
+    toggleSwitch.addEventListener('change', switchTheme, false);
+
+    function switchTheme(e) {
+        if (e.target.checked) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
         }
-    
-        const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
-    
-        if (currentTheme) {
-            document.documentElement.setAttribute('data-theme', currentTheme);
-    
-            if (currentTheme === 'dark') {
-                toggleSwitch.checked = true;
-            }
+        else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
         }
-    
-    
-    </script>
-    
-    
-    </html>
-    
+    }
+
+    const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+
+    if (currentTheme) {
+        document.documentElement.setAttribute('data-theme', currentTheme);
+
+        if (currentTheme === 'dark') {
+            toggleSwitch.checked = true;
+        }
+    }
+
+</script>
+
+
+</html>
