@@ -37,6 +37,9 @@
         --white: white;
         --whiteNUM: white;
         --boxshadow: rgba(100, 100, 100, 0.205);
+        --starter: #e0e0e0;
+        --legendary: #ffed63;
+        --mythical: #8c77ed;
     }
 
     [data-theme="dark"] {
@@ -44,33 +47,9 @@
         --white: rgb(20, 20, 20);
         --whiteNUM: rgb(70, 70, 70);
         --boxshadow: rgba(255, 255, 255, 0);
-    }
-    
-    @font-face {
-        font-family: 'Circular';
-        src: url(./Assets/Circular%20Medium.ttf);
-        font-style: normal;
-        font-weight: medium;
-    }
-
-    @font-face {
-        font-family: 'CircularB';
-        src: url(./Assets/Circular%20Book.ttf);
-        font-style: normal;
-    }
-
-    @font-face {
-        font-family: 'Circular';
-        src: url(./Assets/Circular%20Bold.ttf);
-        font-style: normal;
-        font-weight: bold;
-    }
-
-    @font-face {
-        font-family: 'Circular';
-        src: url(./Assets/Circular%20Black.ttf);
-        font-style: normal;
-        font-weight: bolder;
+        --starter: #919191;
+        --legendary: #c9be70;
+        --mythical: #8c77ed;
     }
 
     body {
@@ -338,22 +317,22 @@
 
         .logo {
             top: 3%;
-            transform: scale(0.7);
+            transform: scale(0.65);
         }
 
         .poke-container {
             margin-top: 35%;
-            max-width: 75%;
+            max-width: 90%;
         }
 
         .pokemon {
-            margin: -5px;
+            margin: 0px;
             margin-top: 0px;
-            transform: scale(0.85);
+            transform: scale(1.4);
         }
 
         .pokemon:hover {
-            transform: scale(0.9);
+            transform: scale(1.45);
         }
 
         .pokemon .number {
@@ -425,7 +404,7 @@
                 <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png" alt="${name}" /></a>
             </div>
             <div class="info">
-                <span class="number" style="background-color: #e0e0e0">#${pokemon.id.toString().padStart(3, '0')} <span class="starter">Starter</span></span>
+                <span class="number" style="background-color: var(--starter)">#${pokemon.id.toString().padStart(3, '0')} <span class="starter">Starter</span></span>
                 <h3 class="name" style="color:${colors[type]}">${name}</h3>
                 <small class="type"><span>${type}</span></small>
             </div>
@@ -436,7 +415,7 @@
                 <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png" alt="${name}" /></a>
             </div>
             <div class="info">
-                <span class="number" style="background-color: #8c77ed">#${pokemon.id.toString().padStart(3, '0')} <span class="mythical">Mythical</span></span>
+                <span class="number" style="background-color: var(--mythical)">#${pokemon.id.toString().padStart(3, '0')} <span class="mythical">Mythical</span></span>
                 <h3 class="name" style="color:${colors[type]}">${name}</h3>
                 <small class="type"><span>${type}</span></small>
             </div>
@@ -447,7 +426,7 @@
                 <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png" alt="${name}" /></a>
             </div>
             <div class="info">
-                <span class="number" style="background-color: #ffed63">#${pokemon.id.toString().padStart(3, '0')} <span class="legendary">Legendary</span></span>
+                <span class="number" style="background-color: var(--legendary)">#${pokemon.id.toString().padStart(3, '0')} <span class="legendary">Legendary</span></span>
                 <h3 class="name" style="color:${colors[type]}">${name}</h3>
                 <small class="type"><span>${type}</span></small>
             </div>
