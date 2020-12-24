@@ -1,5 +1,6 @@
 <html>
-    <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -7,9 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta name="description" content="Pokedex">
-    <meta name="keywords" content="pokemon, pokedex, sinnoh, diamond, pearl, platinum, nintendo, kanto, hoenn, johto, 493, gen4">
+    <meta name="keywords"
+        content="pokemon, pokedex, sinnoh, diamond, pearl, platinum, nintendo, kanto, hoenn, johto, 493, gen4">
     <meta name="author" content="dnvie">
-    <meta property="og:title" content="Pokedex"/>
+    <meta property="og:title" content="Pokedex" />
     <meta property="og:description" content="Pokedex">
     <meta property="og:type" content="website">
     <meta property=“og:site_name“ content=“Pokedex“>
@@ -68,7 +70,7 @@
         --legendary: #c9be70;
         --mythical: #8c77ed;
     }
-    
+
     @font-face {
         font-family: 'Circular';
         src: url("/Assets/Circular%20Book.ttf");
@@ -178,17 +180,18 @@
         padding: 30px;
         text-align: center;
         transform: scale(1.5);
-        transition: all 0.15s ease-out;
+        transition: all 0.1s ease-out;
     }
 
     .pokemon:hover {
         transform: scale(1.55);
-        transition: all 0.15s ease-out;
-        box-shadow: 0 3px 15px rgba(100, 100, 100, 0.089);
+        transition: all 0.1s ease-out;
+        box-shadow: 0 3px 15px rgba(114, 114, 114, 0.15);
     }
 
     .pokemon:hover .img-container {
         transition: all 0.1s ease-out;
+        transform: scale(1.1);
     }
 
     .pokemon .img-container {
@@ -209,28 +212,28 @@
     .pokemon .info {
         margin-top: -120px;
         padding-bottom: 120px;
+        transition: all 0.1s ease-out;
     }
+
 
     .pokemon .number {
         position: absolute;
         top: -3%;
         left: -3%;
-        /*background-color: var(--whiteNUM);*/
-        background-color: none;
-        backdrop-filter: blur(20px) brightness(1);
         color: var(--black);
-        box-shadow: 0 3px 15px var(--boxshadow);
+        box-shadow: 0 4.5px 15px var(--boxshadow);
         border-radius: 8px;
         font-family: Circular;
         font-size: 11px;
         font-weight: bold;
         padding: 5px 10px;
-        transition: all 0.25s ease-out;
+        transition: all 0.1s ease-out;
     }
 
     .pokemon .name {
         margin: 15px 0px 7px;
         opacity: 100%;
+        transition: all 0.1s ease-out;
     }
 
     .pokemon .type {
@@ -390,7 +393,7 @@
     const container = document.getElementById('container');
     const pokemons_number = 493;
     const colors = {
-        bug: '#79c710', dark: '#2b2b2b', dragon: '#495fc4', electric: '#f0d507', fairy: '#d64bba', fighting: '#6b6459', fire: '#fc4e4e', flying: '#7c9fa3', ghost: '#2c367a', grass: '#27b859', ground: '#8c6a48', ice: '#7afdff', normal: '#828282', poison: '#4421ad', psychic: '#701d7d', rock: '#734f14', steel: '#636363', water: '#0278cc'
+        bug: '#79c710', dark: '#2b2b2b', dragon: '#495fc4', electric: '#f0d507', fairy: '#d64bba', fighting: '#6b6459', fire: '#fc4e4e', flying: '#7c9fa3', ghost: '#2c367a', grass: '#27b859', ground: '#8c6a48', ice: '#96e6eb', normal: '#828282', poison: '#4421ad', psychic: '#701d7d', rock: '#734f14', steel: '#636363', water: '#0278cc'
     };
     const colors2 = {
         bug: '#e7ffc7', dark: '#8c8c8c', dragon: '#d9e0ff', electric: '#fffbb5', fairy: '#fce1fa', fighting: '#ebe6df', fire: '#ffdbdb', flying: '#ebf4f5', ghost: '#9da1bd', grass: '#d1ffe1', ground: '#f4e7da', ice: '#d9feff', normal: '#F5F5F5', poison: '#d6c7ff', psychic: '#dbbae0', rock: '#e6cfa8', steel: '#d1d1d1', water: '#dbf5ff'
@@ -421,15 +424,18 @@
 
         pokemonElement.style.backgroundColor = color;
 
+        //<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${pokemon.id}.gif" alt="${name}2" /></a>
+
         const pokeInnerHTML = `
             <a href="https://pokedex.org/#/pokemon/${pokemon.id}"><div class="img-container">
                 <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png" alt="${name}" /></a>
             </div>
             <div class="info">
-                <span class="number">#${pokemon.id.toString().padStart(3, '0')}</span>
                 <h3 class="name" style="color:${colors[type]}">${name}</h3>
                 <small class="type"><span>${type}</span></small>
+                <div class="number" style="background-color:#F0F0F0">#${pokemon.id.toString().padStart(3, '0')}</div>
             </div>
+            
         `;
 
         const pokeInnerHTMLStarter = `
@@ -437,10 +443,10 @@
                 <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png" alt="${name}" /></a>
             </div>
             <div class="info">
-                <span class="number" style="background-color: var(--starter)">#${pokemon.id.toString().padStart(3, '0')} <span class="starter">Starter</span></span>
                 <h3 class="name" style="color:${colors[type]}">${name}</h3>
                 <small class="type"><span>${type}</span></small>
             </div>
+            <div class="number" style="background-color:${color}">#${pokemon.id.toString().padStart(3, '0')} <span class="starter">Starter</span></div>
         `;
 
         const pokeInnerHTMLMythical = `
@@ -448,10 +454,10 @@
                 <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png" alt="${name}" /></a>
             </div>
             <div class="info">
-                <span class="number" style="background-color: var(--mythical)">#${pokemon.id.toString().padStart(3, '0')} <span class="mythical">Mythical</span></span>
                 <h3 class="name" style="color:${colors[type]}">${name}</h3>
                 <small class="type"><span>${type}</span></small>
             </div>
+            <div class="number" style="background-color:${color}">#${pokemon.id.toString()} <span class="mythical">Mythical</span></div>
         `;
 
         const pokeInnerHTMLLegendary = `
@@ -459,115 +465,28 @@
                 <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png" alt="${name}" /></a>
             </div>
             <div class="info">
-                <span class="number" style="background-color: var(--legendary)">#${pokemon.id.toString().padStart(3, '0')} <span class="legendary">Legendary</span></span>
                 <h3 class="name" style="color:${colors[type]}">${name}</h3>
                 <small class="type"><span>${type}</span></small>
             </div>
+            <div class="number" style="background-color:${color}">#${pokemon.id.toString()} <span class="legendary">Legendary</span></div>
         `;
 
-        if (pokemon.id == 144) {
+        var Legendaries = [144, 145, 146, 150, 243, 244, 245, 249, 250, 377, 378, 379, 380, 381, 382, 383, 384, 580, 481, 482, 483, 484, 485, 486, 487, 488, 493]
+        var Mythicals = [151, 251, 385, 386, 489, 490, 491, 492]
+        var Starters = [1, 4, 7, 152, 155, 158, 252, 255, 258, 387, 390, 393]
+
+        if (Legendaries.includes(pokemon.id)) {
             pokemonElement.innerHTML = pokeInnerHTMLLegendary;
-        } else if (pokemon.id == 145) {
-            pokemonElement.innerHTML = pokeInnerHTMLLegendary;
-        } else if (pokemon.id == 146) {
-            pokemonElement.innerHTML = pokeInnerHTMLLegendary;
-        } else if (pokemon.id == 150) {
-            pokemonElement.innerHTML = pokeInnerHTMLLegendary;
-        } else if (pokemon.id == 243) {
-            pokemonElement.innerHTML = pokeInnerHTMLLegendary;
-        } else if (pokemon.id == 244) {
-            pokemonElement.innerHTML = pokeInnerHTMLLegendary;
-        } else if (pokemon.id == 245) {
-            pokemonElement.innerHTML = pokeInnerHTMLLegendary;
-        } else if (pokemon.id == 249) {
-            pokemonElement.innerHTML = pokeInnerHTMLLegendary;
-        } else if (pokemon.id == 250) {
-            pokemonElement.innerHTML = pokeInnerHTMLLegendary;
-        } else if (pokemon.id == 377) {
-            pokemonElement.innerHTML = pokeInnerHTMLLegendary;
-        } else if (pokemon.id == 378) {
-            pokemonElement.innerHTML = pokeInnerHTMLLegendary;
-        } else if (pokemon.id == 379) {
-            pokemonElement.innerHTML = pokeInnerHTMLLegendary;
-        } else if (pokemon.id == 380) {
-            pokemonElement.innerHTML = pokeInnerHTMLLegendary;
-        } else if (pokemon.id == 381) {
-            pokemonElement.innerHTML = pokeInnerHTMLLegendary;
-        } else if (pokemon.id == 382) {
-            pokemonElement.innerHTML = pokeInnerHTMLLegendary;
-        } else if (pokemon.id == 383) {
-            pokemonElement.innerHTML = pokeInnerHTMLLegendary;
-        } else if (pokemon.id == 384) {
-            pokemonElement.innerHTML = pokeInnerHTMLLegendary;
-        } else if (pokemon.id == 480) {
-            pokemonElement.innerHTML = pokeInnerHTMLLegendary;
-        } else if (pokemon.id == 481) {
-            pokemonElement.innerHTML = pokeInnerHTMLLegendary;
-        } else if (pokemon.id == 482) {
-            pokemonElement.innerHTML = pokeInnerHTMLLegendary;
-        } else if (pokemon.id == 483) {
-            pokemonElement.innerHTML = pokeInnerHTMLLegendary;
-        } else if (pokemon.id == 484) {
-            pokemonElement.innerHTML = pokeInnerHTMLLegendary;
-        } else if (pokemon.id == 485) {
-            pokemonElement.innerHTML = pokeInnerHTMLLegendary;
-        } else if (pokemon.id == 486) {
-            pokemonElement.innerHTML = pokeInnerHTMLLegendary;
-        } else if (pokemon.id == 487) {
-            pokemonElement.innerHTML = pokeInnerHTMLLegendary;
-        } else if (pokemon.id == 488) {
-            pokemonElement.innerHTML = pokeInnerHTMLLegendary;
-        } else if (pokemon.id == 493) {
-            pokemonElement.innerHTML = pokeInnerHTMLLegendary;
-        } else if (pokemon.id == 151) {
+        } else if (Mythicals.includes(pokemon.id)) {
             pokemonElement.innerHTML = pokeInnerHTMLMythical;
-        } else if (pokemon.id == 251) {
-            pokemonElement.innerHTML = pokeInnerHTMLMythical;
-        } else if (pokemon.id == 385) {
-            pokemonElement.innerHTML = pokeInnerHTMLMythical;
-        } else if (pokemon.id == 386) {
-            pokemonElement.innerHTML = pokeInnerHTMLMythical;
-        } else if (pokemon.id == 489) {
-            pokemonElement.innerHTML = pokeInnerHTMLMythical;
-        } else if (pokemon.id == 490) {
-            pokemonElement.innerHTML = pokeInnerHTMLMythical;
-        } else if (pokemon.id == 491) {
-            pokemonElement.innerHTML = pokeInnerHTMLMythical;
-        } else if (pokemon.id == 492) {
-            pokemonElement.innerHTML = pokeInnerHTMLMythical;
-        } else if (pokemon.id == 1) {
-            pokemonElement.innerHTML = pokeInnerHTMLStarter;
-        } else if (pokemon.id == 4) {
-            pokemonElement.innerHTML = pokeInnerHTMLStarter;
-        } else if (pokemon.id == 7) {
-            pokemonElement.innerHTML = pokeInnerHTMLStarter;
-        } else if (pokemon.id == 152) {
-            pokemonElement.innerHTML = pokeInnerHTMLStarter;
-        } else if (pokemon.id == 155) {
-            pokemonElement.innerHTML = pokeInnerHTMLStarter;
-        } else if (pokemon.id == 158) {
-            pokemonElement.innerHTML = pokeInnerHTMLStarter;
-        } else if (pokemon.id == 252) {
-            pokemonElement.innerHTML = pokeInnerHTMLStarter;
-        } else if (pokemon.id == 255) {
-            pokemonElement.innerHTML = pokeInnerHTMLStarter;
-        } else if (pokemon.id == 258) {
-            pokemonElement.innerHTML = pokeInnerHTMLStarter;
-        } else if (pokemon.id == 387) {
-            pokemonElement.innerHTML = pokeInnerHTMLStarter;
-        } else if (pokemon.id == 390) {
-            pokemonElement.innerHTML = pokeInnerHTMLStarter;
-        } else if (pokemon.id == 393) {
+        } else if (Starters.includes(pokemon.id)) {
             pokemonElement.innerHTML = pokeInnerHTMLStarter;
         } else {
             pokemonElement.innerHTML = pokeInnerHTML;
         }
         container.appendChild(pokemonElement);
-
     }
-
     fetchPokemons();
-
 
     const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
 
